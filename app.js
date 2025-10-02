@@ -45,20 +45,6 @@ function displayMovie(movieObject) {
   console.log(`${movieObject.title} tilføjet fra JSON!`);
 }
 
-async function testDisplayMovie() {
-  console.log("🧪 Tester displayMovie med JSON data...");
-
-  const response = await fetch(
-    "https://raw.githubusercontent.com/cederdorff/race/refs/heads/master/data/movies.json"
-  );
-  const moviesFromJSON = await response.json();
-
-  displayMovie(moviesFromJSON[0]);
-  console.log("✅ Test fuldført - det virkede!");
-}
-
-testDisplayMovie();
-
 function displayMovies(movieArray) {
   movieListContainer.innerHTML = "";
 
@@ -85,3 +71,7 @@ async function loadMovies() {
 }
 
 loadMovies();
+
+window.addEventListener("load", initApp);
+
+let allMovies = []
